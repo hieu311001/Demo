@@ -32,10 +32,9 @@ class Controller {
     }
 
     editStudent(req, res) {
-        console.log(req.body._id)
         let connection = mongoose.connection
         connection.collection('students').updateOne({
-                _id: req.body._id
+                msv: req.body.msv
             }, {
                 $set: {
                     'msv': req.body.msv,
@@ -52,7 +51,7 @@ class Controller {
 
     deleteStudent(req, res) {
         let connection = mongoose.connection
-        connection.collection('students').deleteOne({_id: req.body}, function (err, res) {
+        connection.collection('students').deleteOne({msv: req.body.msv}, function (err, res) {
             if (err) throw err
             console.log('Xoa thanh cong')
         })
