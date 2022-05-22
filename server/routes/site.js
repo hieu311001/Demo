@@ -4,7 +4,7 @@ const controller = require('../controllers/Controller')
 
 router.get('/students', controller.getStudent)
 
-router.get('/students/', controller.getStudentId)
+router.get('/students/:id', controller.getStudentId)
 
 router.post('/add-student', controller.addStudent)
 
